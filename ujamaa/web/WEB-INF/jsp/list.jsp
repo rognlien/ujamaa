@@ -30,7 +30,6 @@
       </c:forEach>
       </tbody>
     </table>
-
     
     <stripes:form action="/edit.action">
       <stripes:submit name="create" value="Add a new record"/>

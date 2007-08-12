@@ -39,5 +39,4 @@ public class Record {
   public void setCreated(Date created) {
     this.created = created;
   }
-
 }
