@@ -3,6 +3,7 @@
 <wb-module deploy-name="ujamaa">
 <wb-resource deploy-path="/" source-path="/web"/>
 <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/properties"/>
 <property name="context-root" value="ujamaa"/>
 <property name="java-output-path" value="build/classes"/>
 </wb-module>
