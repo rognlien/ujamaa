@@ -1,0 +1,37 @@
+<map>
+  <entry>
+    <int>1</int>
+    <com.rognlien.ujamaa.Record>
+      <id>1</id>
+      <name>Ole Nilsen</name>
+      <address>
+        <street>Villaveien 666</street>
+        <code>2222</code>
+        <place>Fillebygd</place>
+      </address>
+      <details>
+        <com.rognlien.ujamaa.Detail>
+          <type>PHONE</type>
+        </com.rognlien.ujamaa.Detail>
+      </details>
+    </com.rognlien.ujamaa.Record>
+  </entry>
+
+  <entry>
+    <int>2</int>
+    <com.rognlien.ujamaa.Record>
+      <id>2</id>
+      <name>Kari Normann</name>
+      <address>
+        <street>Portveien 2</street>
+        <code>1234</code>
+        <place>Hageby</place>
+      </address>
+      <details>
+        <com.rognlien.ujamaa.Detail>
+          <type>PHONE</type>
+        </com.rognlien.ujamaa.Detail>
+      </details>
+    </com.rognlien.ujamaa.Record>
+  </entry>
+</map>

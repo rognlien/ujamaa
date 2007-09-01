@@ -11,8 +11,13 @@ import net.sourceforge.stripes.action.UrlBinding;
 
 @UrlBinding("/edit.action")
 public class RecordEditActionBean extends AbstractActionBean {
-  
+  private RecordManager recordManager;
   private Record record;
+  
+  
+  public RecordEditActionBean() {
+    recordManager = new RecordManager();
+  }
   
   public Record getRecord() {
     return record;
@@ -28,7 +33,7 @@ public class RecordEditActionBean extends AbstractActionBean {
   @DefaultHandler
   @DontValidate
   public Resolution edit() throws Exception {
-    this.record = RecordManager.retrieve(record.getId());
+    this.record = recordManager.retrieve(record.getId());
     return new ForwardResolution("/WEB-INF/jsp/edit.jsp");
   }
 
@@ -41,12 +46,17 @@ public class RecordEditActionBean extends AbstractActionBean {
 
   @DontValidate
   public Resolution save() throws Exception {
-    System.out.println("Saving record");
-    RecordManager.store(record);
+    logger.info("Saving record");
+    recordManager.store(record);
     return new RedirectResolution(RecordListActionBean.class);
   }
 
-  
+  @DontValidate
+  public Resolution delete() throws Exception {
+    logger.info("Deleting record");
+    recordManager.store(record);
+    return new RedirectResolution(RecordListActionBean.class);
+  }
   
   
   
