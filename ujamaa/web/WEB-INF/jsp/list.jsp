@@ -10,7 +10,7 @@
     <stripes:errors/>
         
     <ul class="tabs narrowtabs">
-      <li class="${actionBean.filter == '*' ? 'selected' : ''}">
+      <li class="${(actionBean.filter == '*' || empty actionBean.filter) ? 'selected' : ''}">
         <stripes:link beanclass="com.rognlien.ujamaa.RecordListActionBean">All
           <stripes:param name="filter">*</stripes:param>
           <stripes:param name="sort" value="${actionBean.sort}"/>
@@ -52,7 +52,6 @@
               Created
             </stripes:link>
           </th>
-          <th></th>
         </tr>
       </thead>
       
@@ -62,14 +61,7 @@
         <tr class="${loop.count%2==0 ? '' : 'odd'}" id="${r.id}">
           <td class="f">${r.name}</td>
           <td>${r.address.street} ${r.address.code} ${r.address.place}</td>
-          <td>${r.created}</td>
-          <td>
-            <stripes:link href="/edit.action">Edit
-              <stripes:param name="record.id" value="${r.id}" />
-            </stripes:link>
-          </td>
-          
-          
+          <td>${r.created}</td>          
         </tr>
       </c:forEach>
       </tbody>

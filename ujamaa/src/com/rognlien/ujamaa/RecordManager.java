@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
@@ -78,13 +79,15 @@ public class RecordManager {
     persist();
   }
   
+  
   public List<Record> list(String filter, String sort, boolean reverse) throws Exception {
     ArrayList<Record> records;
+    
     if(filter != null && filter.length() > 0) {
+      Pattern p = Pattern.compile("^" + filter.replaceAll("\\*", ".*") + "$");
       records = new ArrayList<Record>();
-      String re = "^" + filter.replaceAll("\\*", ".*") + "$";
       for(Record r : this.records.values()) {
-        if(r.getName().toLowerCase().matches(re)) {
+        if(p.matcher(r.getName().toLowerCase()).matches()) {
           records.add(r);
         }
       }

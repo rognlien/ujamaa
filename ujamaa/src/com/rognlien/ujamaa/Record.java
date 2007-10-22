@@ -1,12 +1,13 @@
 package com.rognlien.ujamaa;
 
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Record {
   private int id;
   private String name;
+  private Date birthday;
+  
   private Date created;
   private Address address;
   private List<Detail> details;
@@ -48,5 +49,13 @@ public class Record {
 
   public void setAddress(Address address) {
     this.address = address;
+  }
+
+  public Date getBirthday() {
+    return birthday;
+  }
+
+  public void setBirthday(Date birthday) {
+    this.birthday = birthday;
   }
 }

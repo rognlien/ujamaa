@@ -8,4 +8,8 @@ $(document).ready(function() {
    $("table.list tbody tr").mouseout(function() {    
      $(this).removeClass("hover");
    });
+   
+   $("input[@name=delete]").click(function() {    
+     return confirm("Are you sure?");
+   });
 });

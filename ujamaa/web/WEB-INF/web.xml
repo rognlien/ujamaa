@@ -98,4 +98,34 @@
 		<servlet-name>StripesDispatcher</servlet-name>
 		<url-pattern>*.action</url-pattern>
 	</servlet-mapping>
+	
+	
+	<!-- 
+	 <servlet>
+    <description>This is the servlet needed for cache.type servlet</description>
+    <display-name>PackServlet</display-name>
+    <servlet-name>PackServlet</servlet-name>
+    <servlet-class>net.sf.packtag.servlet.PackServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>PackServlet</servlet-name>
+    <url-pattern>/pack</url-pattern>
+  </servlet-mapping>
+   -->
+  <servlet>
+    <description>This is the servlet needed for cache.type servlet</description>
+    <display-name>CompactResourceServlet</display-name>
+    <servlet-name>CompactResourceServlet</servlet-name>
+    <servlet-class>com.rognlien.ujamaa.compact.CompactResourceServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CompactResourceServlet</servlet-name>
+    <!-- You can change this url-pattern, simply set the property "cache.servlet.path" to the same url-pattern. -->
+    <url-pattern>/compactresource/*</url-pattern>
+  </servlet-mapping>
+  
+	
+	
 </web-app>
