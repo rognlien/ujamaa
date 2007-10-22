@@ -12,8 +12,24 @@
 	  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	  <title>Address book</title>
 	  <link rel="stylesheet" type="text/css" href="css/main.css" />
+	  <%-- 
 	  <script type="text/javascript" src="js/jquery.js"></script>
 	  <script type="text/javascript" src="js/addressbook.js"></script>
+	  --%>
+	  
+	  
+	  
+	  <c:set var="scripts" value="js/nrk/prototype.js:js/nrk/scriptaculous.js:js/nrk/1.11924!ticker.js:js/nrk/1.11926!logger.js:js/nrk/1.13577!tmv11.js:js/nrk/1.1655067!tmflashv11.js:js/nrk/1.4046!multimedia.js:js/nrk/1.4047!menu.js:js/nrk/1.4048!lib.js:js/nrk/1.4049!topline.js:js/nrk/1.4050!flashdetector.js:js/nrk/1.656684!flashrunner.js:js/nrk/1.880637!domLib.js:js/nrk/1.880638!domTT.js:js/nrk/1.880641!domTT_drag.js:js/nrk/1.880708!fadomatic.js" />
+	  
+	  <%-- 
+	  <c:forTokens var="script" items="js/nrk/prototype.js:js/nrk/scriptaculous.js:js/nrk/1.11924!ticker.js:js/nrk/1.11926!logger.js:js/nrk/1.13577!tmv11.js:js/nrk/1.1655067!tmflashv11.js:js/nrk/1.4046!multimedia.js:js/nrk/1.4047!menu.js:js/nrk/1.4048!lib.js:js/nrk/1.4049!topline.js:js/nrk/1.4050!flashdetector.js:js/nrk/1.656684!flashrunner.js:js/nrk/1.880637!domLib.js:js/nrk/1.880638!domTT.js:js/nrk/1.880641!domTT_drag.js:js/nrk/1.880708!fadomatic.js" delims=":">
+	    <script type="text/javascript" src="${script}"></script>
+	  </c:forTokens>
+	  --%>
+	  
+	  <script type="text/javascript" src="/compactresource/${scripts}"></script>
+	  
+
 	</head>
 
 	<body>
@@ -22,7 +38,7 @@
 	  <div class="container">
 	
 	<stripes:form class="search left" beanclass="com.rognlien.ujamaa.RecordListActionBean">
-    <stripes:text name="query" size="16" />
+    <stripes:text name="filter" size="16" />
     <stripes:submit name="List" value="Search"/>
 	</stripes:form>
 	

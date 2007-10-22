@@ -53,7 +53,11 @@ div.container {
 }
 
 form.search {
-  margin: 8px 0 4px 8px;
+  margin: 10px 0 4px 10px;
+}
+
+form.search input {
+  margin: 0px;
 }
 
 
@@ -112,7 +116,6 @@ ul.tabs li {
   padding: 0 0 0 0px;
   border: 1px solid #bbb;
   background-color: #eee;
-  /*background: #eee url(../gfx/tab_small_left.gif) no-repeat left top;*/
 }
 
 ul.tabs li.selected {
@@ -125,8 +128,6 @@ ul.tabs li.selected {
 ul.tabs li a {
   float:left;
   display:block;
-  /*background:url("../gfx/tab_small_right.gif") no-repeat right top;*/
-  
   margin: 0;
   padding:2px 8px 2px 8px;
   text-decoration:none;
@@ -216,7 +217,35 @@ table.list tr.hover {
   background-color: #ffc;
 }
 
+form > input {
+  margin: 0 0 10px 10px;
+}
 
+form label {
+  display: block;
+  float: left;
+  margin: 0px 0px 8px 0px;
+  padding: 2px 8px 0 0;
+  text-align: right;
+  width: 100px;
+  font-weight: bold;
+  color: #222;
+}
+
+
+form fieldset {
+  border: 0;
+  border-top: 2px solid #bbb;
+  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
+}
+
+form fieldset legend {
+  margin: 0 0 0 10px;
+  padding: 0 5px 0 5px;
+  font-weight: bold;
+  color: #666;
+}
 
 form div {
   margin: 0px 10px 10px 10px;
@@ -224,4 +253,59 @@ form div {
   border: 1px solid #999;
   border-color: #aaa #fff #fff #aaa;
   background-color: #fff;
+}
+
+
+
+
+
+
+
+
+div.message {
+  clear: both;
+  display: block;
+  width: 759px;
+  margin: 10px 0 10px 10px;
+  border: 1px solid #999;
+  border-color: #aaa #fff #fff #aaa;
+  padding: 0;
+}
+
+
+div.message ul {
+  display: block;
+  padding: 6px 20px 10px 30px;
+  margin: 0;
+  list-style: none;
+}
+
+div.message ul {
+  background: url("../gfx/icon_info.gif") no-repeat 8px center;
+}
+
+div.notice ul {
+  background: url("../gfx/icon_notice.gif") no-repeat 8px center;
+}
+
+div.error ul {
+  background: url("../gfx/icon_error.gif") no-repeat 8px center;
+}
+
+
+div.message li {
+  display: block;
+  padding: 5px 10px 0px 20px;
+}
+
+div.error {
+  background-color: #FF9988;
+}
+
+div.notice {
+  background-color: #FFFFBB;
+}
+
+div.info {
+  background-color: #FEFEDB;
 }

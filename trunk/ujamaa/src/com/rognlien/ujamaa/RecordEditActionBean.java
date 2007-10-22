@@ -54,7 +54,7 @@ public class RecordEditActionBean extends AbstractActionBean {
   @DontValidate
   public Resolution delete() throws Exception {
     logger.info("Deleting record");
-    recordManager.store(record);
+    recordManager.delete(record.getId());
     return new RedirectResolution(RecordListActionBean.class);
   }
   
