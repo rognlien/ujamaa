@@ -1,9 +1,8 @@
-package com.rognlien.ujamaa;
+package com.rognlien.ujamaa.action;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,6 +16,9 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+import com.rognlien.ujamaa.model.Record;
+import com.rognlien.ujamaa.model.RecordCreatedComparator;
+import com.rognlien.ujamaa.model.RecordNameComparator;
 import com.thoughtworks.xstream.XStream;
 
 public class RecordManager {
@@ -26,7 +28,6 @@ public class RecordManager {
   private File file;
   private Map<Integer, Record> records;
 
-  
   
   public RecordManager() {
     xstream = new XStream();

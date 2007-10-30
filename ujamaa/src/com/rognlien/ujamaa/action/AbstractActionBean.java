@@ -1,4 +1,4 @@
-package com.rognlien.ujamaa;
+package com.rognlien.ujamaa.action;
 
 import org.apache.log4j.Logger;
 

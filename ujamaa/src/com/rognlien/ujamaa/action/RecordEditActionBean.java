@@ -1,5 +1,7 @@
-package com.rognlien.ujamaa;
+package com.rognlien.ujamaa.action;
 
+
+import com.rognlien.ujamaa.model.Record;
 
 import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.DontValidate;
