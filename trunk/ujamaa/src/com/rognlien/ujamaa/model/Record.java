@@ -1,4 +1,4 @@
-package com.rognlien.ujamaa;
+package com.rognlien.ujamaa.model;
 
 import java.util.Date;
 import java.util.List;

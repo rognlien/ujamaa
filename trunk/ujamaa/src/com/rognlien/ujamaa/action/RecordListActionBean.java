@@ -1,6 +1,8 @@
-package com.rognlien.ujamaa;
+package com.rognlien.ujamaa.action;
 
 import java.util.List;
+
+import com.rognlien.ujamaa.model.Record;
 
 import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.ForwardResolution;

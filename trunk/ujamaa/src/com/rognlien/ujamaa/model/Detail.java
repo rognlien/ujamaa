@@ -1,4 +1,4 @@
-package com.rognlien.ujamaa;
+package com.rognlien.ujamaa.model;
 
 public class Detail {
   private DetailType type;

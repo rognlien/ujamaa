@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+  <bean name="RecordManager" class="com.rognlien.ujamaa.action.RecordManager">
+
+  </bean>
+  
+    <!--
+  
+  <bean name="OrderJdbcDao" class="com.rognlien.askari.dao.jdbc.OrderJdbcDao">
+    <constructor-arg>
+      <ref bean="DataSourceManager"/>
+    </constructor-arg>
+  </bean>
+  
+  <bean name="CategoryJdbcDao" class="com.rognlien.askari.dao.jdbc.CategoryJdbcDao">
+    <constructor-arg>
+      <ref bean="DataSourceManager"/>
+    </constructor-arg>
+  </bean>
+  
+  <bean name="CustomerJdbcDao" class="com.rognlien.askari.dao.jdbc.CustomerJdbcDao">
+    <constructor-arg>
+      <ref bean="DataSourceManager"/>
+    </constructor-arg>
+  </bean>
+
+  <bean name="JobJdbcDao" class="com.rognlien.askari.dao.jdbc.JobJdbcDao">
+    <constructor-arg>
+      <ref bean="DataSourceManager"/>
+    </constructor-arg>
+  </bean>
+
+  <bean name="ProductJdbcDao" class="com.rognlien.askari.dao.jdbc.ProductJdbcDao">
+    <constructor-arg>
+      <ref bean="DataSourceManager"/>
+    </constructor-arg>
+  </bean>
+  
+  <bean name="ProviderJdbcDao" class="com.rognlien.askari.dao.jdbc.ProviderJdbcDao">
+    <constructor-arg>
+      <ref bean="DataSourceManager"/>
+    </constructor-arg>
+  </bean>
+  -->
+</beans>
