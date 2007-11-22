@@ -10,7 +10,7 @@
     <stripes:errors/>
     </div>
       
-    <stripes:form beanclass="com.rognlien.ujamaa.RecordEditActionBean">
+    <stripes:form beanclass="com.rognlien.ujamaa.action.RecordEditActionBean">
       <div>
       
         <fieldset>
@@ -44,7 +44,7 @@
                 <td><img src="${pageContext.request.contextPath}/gfx/icon_add.gif"/></td>
                 <td>
                   <stripes:select name="record.details[${loop.index}].type">
-                    <stripes:options-enumeration enum="com.rognlien.ujamaa.DetailType" />
+                    <stripes:options-enumeration enum="com.rognlien.ujamaa.model.DetailType" />
                   </stripes:select>
                 </td>
                 <td><stripes:text name="record.details[${loop.index}].value" /></td>

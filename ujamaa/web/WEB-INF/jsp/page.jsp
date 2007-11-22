@@ -22,14 +22,14 @@
 	<div class="canvas">
 	  <div class="container">
 	
-	<stripes:form class="search left" beanclass="com.rognlien.ujamaa.RecordListActionBean">
+	<stripes:form class="search left" beanclass="com.rognlien.ujamaa.action.RecordListActionBean">
     <stripes:text name="filter" size="16" />
     <stripes:submit name="List" value="Search"/>
 	</stripes:form>
 	
 	<ul class="buttons right">
-	  <li><stripes:link beanclass="com.rognlien.ujamaa.RecordListActionBean">List</stripes:link></li>
-	  <li><stripes:link beanclass="com.rognlien.ujamaa.RecordEditActionBean" event="create">New</stripes:link></li>
+	  <li><stripes:link beanclass="com.rognlien.ujamaa.action.RecordListActionBean">List</stripes:link></li>
+	  <li><stripes:link beanclass="com.rognlien.ujamaa.action.RecordEditActionBean" event="create">New</stripes:link></li>
 	</ul>
 	<br />
 	

@@ -11,7 +11,7 @@
         
     <ul class="tabs narrowtabs">
       <li class="${(actionBean.filter == '*' || empty actionBean.filter) ? 'selected' : ''}">
-        <stripes:link beanclass="com.rognlien.ujamaa.RecordListActionBean">All
+        <stripes:link beanclass="com.rognlien.ujamaa.action.RecordListActionBean">All
           <stripes:param name="filter">*</stripes:param>
           <stripes:param name="sort" value="${actionBean.sort}"/>
           <stripes:param name="reverse" value="${actionBean.reverse}" />
@@ -20,7 +20,7 @@
       <c:forTokens items="a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,æ,ø,å" delims="," var="letter">
         <c:set var="filter" value="${letter}*"/>
         <li class="${actionBean.filter == filter ? 'selected' : ''}">
-          <stripes:link beanclass="com.rognlien.ujamaa.RecordListActionBean">${letter}
+          <stripes:link beanclass="com.rognlien.ujamaa.action.RecordListActionBean">${letter}
             <stripes:param name="filter">${letter}*</stripes:param>
             <stripes:param name="sort" value="${actionBean.sort}"/>
             <stripes:param name="reverse" value="${actionBean.reverse}" />
@@ -36,7 +36,7 @@
       <thead>
         <tr>
           <th>
-            <stripes:link class="${actionBean.reverse?'desc':'asc'}" beanclass="com.rognlien.ujamaa.RecordListActionBean">
+            <stripes:link class="${actionBean.reverse?'desc':'asc'}" beanclass="com.rognlien.ujamaa.action.RecordListActionBean">
               <stripes:param name="sort" value="name"/>
               <stripes:param name="filter" value="${actionBean.filter}" />
               <stripes:param name="reverse" value="${!actionBean.reverse}" />
@@ -45,7 +45,7 @@
           </th>
           <th>Address</th>
           <th>
-            <stripes:link class="${actionBean.reverse?'desc':'asc'}" beanclass="com.rognlien.ujamaa.RecordListActionBean">
+            <stripes:link class="${actionBean.reverse?'desc':'asc'}" beanclass="com.rognlien.ujamaa.action.RecordListActionBean">
               <stripes:param name="sort" value="created"/>
               <stripes:param name="filter" value="${actionBean.filter}" />
               <stripes:param name="reverse" value="${!actionBean.reverse}" />
