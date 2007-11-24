@@ -14,6 +14,7 @@
       <div>
       
         <fieldset>
+          <legend>Personal</legend>
           <stripes:hidden name="record.id" />
           
           <label>Name:</label>
@@ -23,9 +24,11 @@
           <label>Birthday:</label>
           <stripes:text name="record.birthday" size="12" />
           <br />
-      
-      
-          <label>Address:</label>
+        </fieldset>
+        
+        <fieldset>
+          <legend>Address</legend>
+          <label>Street:</label>
           <stripes:text name="record.address.street" size="48" />
           <br />
       
@@ -36,6 +39,7 @@
         </fieldset>
         
         <fieldset>
+          <legend>Contact information</legend>
           <table>
             <c:set var="numberOfDetails" />
             <c:forEach begin="0" end="2" varStatus="loop">

@@ -1,4 +1,5 @@
-$(document).ready(function() {
+(function($) {
+$(function() {
    $("table.list tbody tr").dblclick(function() {    
      window.location = 'edit.action?_sourcePage=%2Forderlist.jsp&edit=&record.id=' + $(this).attr("id");
    });
@@ -13,3 +14,4 @@ $(document).ready(function() {
      return confirm("Are you sure?");
    });
 });
+})(jQuery);

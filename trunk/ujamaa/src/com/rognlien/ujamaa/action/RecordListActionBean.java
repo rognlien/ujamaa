@@ -40,11 +40,6 @@ public class RecordListActionBean extends AbstractActionBean {
   }
 
 
-  public void setRecords(List<Record> records) {
-    this.records = records;
-  }
-
-
   public String getFilter() {
     return filter;
   }

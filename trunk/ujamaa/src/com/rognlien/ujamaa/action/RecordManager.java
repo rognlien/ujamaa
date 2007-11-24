@@ -1,62 +1,31 @@
 package com.rognlien.ujamaa.action;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
-
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
 import com.rognlien.ujamaa.model.Record;
-import com.rognlien.ujamaa.model.RecordCreatedComparator;
-import com.rognlien.ujamaa.model.RecordNameComparator;
-import com.thoughtworks.xstream.XStream;
+import com.rognlien.ujamaa.model.comparator.RecordComparator;
+import com.rognlien.ujamaa.model.comparator.RecordCreatedComparator;
+import com.rognlien.ujamaa.model.comparator.RecordNameComparator;
+import com.rognlien.ujamaa.persist.RecordXmlPersister;
 
 public class RecordManager {
   protected static Logger logger = Logger.getLogger("com.rognlien.ujamaa");
-  
-  private XStream xstream;
-  private File file;
-  private Map<Integer, Record> records;
 
+  private Map<Integer, Record> records;
+  private RecordXmlPersister persister;
   
   public RecordManager() {
-    xstream = new XStream();
-    try {    
-      file = new File(this.getClass().getClassLoader().getResource("/records.xml").toURI());
-      records = new HashMap<Integer, Record>();
-
-      InputStream is = new FileInputStream(file);
-      records = (Map<Integer, Record>) xstream.fromXML(is);
-      is.close();
-    }
-    catch(Exception e) {
-      logger.error(e);
-    }
+    persister = new RecordXmlPersister();
+    records = persister.load();
   }
-  
-  private void persist() {
-    try {
-      FileOutputStream fos = new FileOutputStream(file);
-      logger.debug("Persisting to file: " + file);
-      xstream.toXML(records, fos);
-      fos.close();
-    }
-    catch (Exception e) {
-      logger.error(e);
-    }
-  }
-
-  
 
   public void store(Record record) {
     if(record.getId() < 1) {
@@ -67,17 +36,16 @@ public class RecordManager {
     }
     
     records.put(record.getId(), record);
-    persist();
+    persister.persist(records);
   }
-  
-  
+
   public Record retrieve(int id) {
     return records.get(id);  
   }
   
   public void delete(int id) {
     records.remove(id);
-    persist();
+    persister.persist(records);
   }
   
   
@@ -99,26 +67,29 @@ public class RecordManager {
     
     
     /* Comparators */
-    Class defaultComparator = RecordNameComparator.class;
+    Class<? extends RecordComparator> defaultComparator = RecordNameComparator.class;
     
-    Map<String, Class> comparators = new HashMap<String, Class>();
+    Map<String, Class<? extends RecordComparator>> comparators = new HashMap<String, Class<? extends RecordComparator>>();
     comparators.put("name", defaultComparator);
     comparators.put("created", RecordCreatedComparator.class);
     
     
     
-    Comparator comparator = null;
+    RecordComparator comparator = null;
     if(comparators.containsKey(sort)) {
       logger.debug("Creating comparator of class: " + comparators.get(sort));
-       comparator = (Comparator) comparators.get(sort).newInstance();
+       comparator = comparators.get(sort).newInstance();
     }
     else {
-      comparator = (Comparator) defaultComparator.newInstance();
+      comparator = defaultComparator.newInstance();
     }
     
-    Collections.sort(records, comparator);
+    
     if(reverse) {
-      Collections.reverse(records);
+      Collections.sort(records, Collections.reverseOrder(comparator));
+    }
+    else {
+      Collections.sort(records, comparator);
     }
     logger.debug("Sort: " + sort);
     logger.debug("Comparator: " + comparator);
