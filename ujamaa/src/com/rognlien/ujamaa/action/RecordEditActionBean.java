@@ -1,14 +1,16 @@
 package com.rognlien.ujamaa.action;
 
 
-import com.rognlien.ujamaa.model.Record;
-
 import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.DontValidate;
 import net.sourceforge.stripes.action.ForwardResolution;
 import net.sourceforge.stripes.action.RedirectResolution;
 import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.action.UrlBinding;
+import net.sourceforge.stripes.validation.Validate;
+import net.sourceforge.stripes.validation.ValidateNestedProperties;
+
+import com.rognlien.ujamaa.model.Record;
 
 
 @UrlBinding("/edit.action")
@@ -25,6 +27,12 @@ public class RecordEditActionBean extends AbstractActionBean {
     return record;
   }
 
+  @ValidateNestedProperties({
+    @Validate(field="name", required=true, maxlength=64)
+   ,@Validate(field="address.street", maxlength=20)
+   ,@Validate(field="address.code", mask="\\d{4}")
+   ,@Validate(field="address.street", maxlength=256)
+  })
   public void setRecord(Record record) {
     this.record = record;
   }
@@ -46,7 +54,6 @@ public class RecordEditActionBean extends AbstractActionBean {
   }
 
 
-  @DontValidate
   public Resolution save() throws Exception {
     logger.info("Saving record");
     recordManager.store(record);

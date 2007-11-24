@@ -15,6 +15,8 @@ public class Address {
   public String getCode() {
     return code;
   }
+
+
   public void setCode(String code) {
     this.code = code;
   }
@@ -24,6 +26,4 @@ public class Address {
   public void setPlace(String place) {
     this.place = place;
   }
-  
-
 }
