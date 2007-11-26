@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<project name="ujamaa"  basedir=".">
+  <property name="warfile" value="ujamaa.war"/>
+
+	
+  <!-- *** war *** -->
+	
+  <target name="war">
+  	<delete file="${warfile}"/>
+  	
+  	<jar destfile="${warfile}" basedir="web" />
+  	
+  	<!--
+    <war destfile="${warfile}" webxml="web/WEB-INF/web.xml">
+      <lib dir="web/WEB-INF/lib" />
+      <classes dir="web/WEB-INF/classes"/>
+    	
+      <zipfileset file="web/WEB-INF/spring.xml" prefix="WEB-INF"/>
+    	
+      <zipfileset dir="properties" prefix="WEB-INF/classes"/>
+    	
+      <zipfileset dir="web/css"  prefix="css"/>
+      <zipfileset dir="web/js"  prefix="js"/>
+      <zipfileset dir="web/gfx"  prefix="gfx"/>
+      <zipfileset dir="web/jsp" prefix="jsp"/>
+    	
+      <fileset file="web/jsp/index.jsp" />
+    </war>
+    -->
+  	
+  	
+  </target>
+	
+	
+</project>
