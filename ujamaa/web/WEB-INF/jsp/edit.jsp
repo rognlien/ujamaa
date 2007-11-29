@@ -59,8 +59,9 @@
 
       </div>
       <stripes:submit name="save" value="Save"/>
-      <stripes:submit name="delete" value="Delete"/>
-
+      <c:if test="${not empty actionBean.record.id}">
+        <stripes:submit name="delete" value="Delete"/>
+      </c:if>
     </stripes:form>
   </stripes:layout-component>
 </stripes:layout-render>
