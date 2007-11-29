@@ -2,35 +2,21 @@
 
 <project name="ujamaa"  basedir=".">
   <property name="warfile" value="ujamaa.war"/>
+	<property name="deploydir" value="/opt/polopoly/resin/webapps/"/>
 
 	
   <!-- *** war *** -->
-	
   <target name="war">
   	<delete file="${warfile}"/>
   	
   	<jar destfile="${warfile}" basedir="web" />
-  	
-  	<!--
-    <war destfile="${warfile}" webxml="web/WEB-INF/web.xml">
-      <lib dir="web/WEB-INF/lib" />
-      <classes dir="web/WEB-INF/classes"/>
-    	
-      <zipfileset file="web/WEB-INF/spring.xml" prefix="WEB-INF"/>
-    	
-      <zipfileset dir="properties" prefix="WEB-INF/classes"/>
-    	
-      <zipfileset dir="web/css"  prefix="css"/>
-      <zipfileset dir="web/js"  prefix="js"/>
-      <zipfileset dir="web/gfx"  prefix="gfx"/>
-      <zipfileset dir="web/jsp" prefix="jsp"/>
-    	
-      <fileset file="web/jsp/index.jsp" />
-    </war>
-    -->
-  	
-  	
   </target>
-	
+
+  <!-- *** Deploy *** -->
+  <target name="deploy">
+    <copy filtering="no" todir="${deploydir}" overwrite="true">
+      <fileset file="${warfile}" />
+    </copy>
+  </target>
 	
 </project>
