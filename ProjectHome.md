@@ -1,0 +1,1 @@
+A simple address book application demostrating Stripes
